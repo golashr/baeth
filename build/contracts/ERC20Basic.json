@@ -57,9 +57,9 @@
   "sourceMap": "",
   "deployedSourceMap": "",
   "source": "pragma solidity ^0.4.23;\n\n\n/**\n* @title ERC20Basic\n* @dev Simpler version of ERC20 interface\n* @dev see https://github.com/ethereum/EIPs/issues/179\n*/\ninterface ERC20Basic {\n\n\tfunction getTotalSupply() external view returns (uint256);\n\n\tfunction balanceOf() external view returns (uint256);\n\n\t//function transfer(address to, uint256 value) external returns (bool);\n\n\tevent Transfer(address indexed from, address indexed to, uint256 value);\n}",
-  "sourcePath": "/Users/rahulgolash/Rahul/Github/BaETH/contracts/ERC20Basic.sol",
+  "sourcePath": "/Users/rahulgolash/Rahul/Github/baeth/contracts/ERC20Basic.sol",
   "ast": {
-    "absolutePath": "/Users/rahulgolash/Rahul/Github/BaETH/contracts/ERC20Basic.sol",
+    "absolutePath": "/Users/rahulgolash/Rahul/Github/baeth/contracts/ERC20Basic.sol",
     "exportedSymbols": {
       "ERC20Basic": [
         139
@@ -308,7 +308,7 @@
     "src": "0:441:2"
   },
   "legacyAST": {
-    "absolutePath": "/Users/rahulgolash/Rahul/Github/BaETH/contracts/ERC20Basic.sol",
+    "absolutePath": "/Users/rahulgolash/Rahul/Github/baeth/contracts/ERC20Basic.sol",
     "exportedSymbols": {
       "ERC20Basic": [
         139
@@ -562,5 +562,5 @@
   },
   "networks": {},
   "schemaVersion": "2.0.0",
-  "updatedAt": "2018-05-27T07:14:52.886Z"
+  "updatedAt": "2018-05-27T08:18:58.182Z"
 }
