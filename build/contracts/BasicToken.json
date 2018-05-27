@@ -1,0 +1,1187 @@
+{
+  "contractName": "BasicToken",
+  "abi": [
+    {
+      "constant": true,
+      "inputs": [],
+      "name": "totalSupply",
+      "outputs": [
+        {
+          "name": "",
+          "type": "uint256"
+        }
+      ],
+      "payable": false,
+      "stateMutability": "view",
+      "type": "function"
+    },
+    {
+      "constant": true,
+      "inputs": [
+        {
+          "name": "",
+          "type": "address"
+        }
+      ],
+      "name": "balances",
+      "outputs": [
+        {
+          "name": "",
+          "type": "uint256"
+        }
+      ],
+      "payable": false,
+      "stateMutability": "view",
+      "type": "function"
+    },
+    {
+      "inputs": [],
+      "payable": false,
+      "stateMutability": "nonpayable",
+      "type": "constructor"
+    },
+    {
+      "anonymous": false,
+      "inputs": [
+        {
+          "indexed": true,
+          "name": "from",
+          "type": "address"
+        },
+        {
+          "indexed": true,
+          "name": "to",
+          "type": "address"
+        },
+        {
+          "indexed": false,
+          "name": "value",
+          "type": "uint256"
+        }
+      ],
+      "name": "Transfer",
+      "type": "event"
+    },
+    {
+      "constant": true,
+      "inputs": [],
+      "name": "balanceOf",
+      "outputs": [
+        {
+          "name": "balance",
+          "type": "uint256"
+        }
+      ],
+      "payable": false,
+      "stateMutability": "view",
+      "type": "function"
+    },
+    {
+      "constant": true,
+      "inputs": [],
+      "name": "getTotalSupply",
+      "outputs": [
+        {
+          "name": "res",
+          "type": "uint256"
+        }
+      ],
+      "payable": false,
+      "stateMutability": "view",
+      "type": "function"
+    }
+  ],
+  "bytecode": "0x6080604052600060015534801561001557600080fd5b50600154600160a060020a033316600090815260208190526040902055610158806100416000396000f3006080604052600436106100615763ffffffff7c010000000000000000000000000000000000000000000000000000000060003504166318160ddd811461006657806327e235e31461008d578063722713f7146100bb578063c4e41b22146100d0575b600080fd5b34801561007257600080fd5b5061007b6100e5565b60408051918252519081900360200190f35b34801561009957600080fd5b5061007b73ffffffffffffffffffffffffffffffffffffffff600435166100eb565b3480156100c757600080fd5b5061007b6100fd565b3480156100dc57600080fd5b5061007b610126565b60015481565b60006020819052908152604090205481565b73ffffffffffffffffffffffffffffffffffffffff331660009081526020819052604090205490565b600154905600a165627a7a7230582016bb8327d1238e06cee05af782f0fd6d78b8176e6bb3de9dcf033e85ce8ff23c0029",
+  "deployedBytecode": "0x6080604052600436106100615763ffffffff7c010000000000000000000000000000000000000000000000000000000060003504166318160ddd811461006657806327e235e31461008d578063722713f7146100bb578063c4e41b22146100d0575b600080fd5b34801561007257600080fd5b5061007b6100e5565b60408051918252519081900360200190f35b34801561009957600080fd5b5061007b73ffffffffffffffffffffffffffffffffffffffff600435166100eb565b3480156100c757600080fd5b5061007b6100fd565b3480156100dc57600080fd5b5061007b610126565b60015481565b60006020819052908152604090205481565b73ffffffffffffffffffffffffffffffffffffffff331660009081526020819052604090205490565b600154905600a165627a7a7230582016bb8327d1238e06cee05af782f0fd6d78b8176e6bb3de9dcf033e85ce8ff23c0029",
+  "sourceMap": "193:537:1:-;;;335:1;306:30;;340:62;8:9:-1;5:2;;;30:1;27;20:12;5:2;-1:-1;387:11:1;;-1:-1:-1;;;;;373:10:1;364:20;:8;:20;;;;;;;;;;:34;193:537;;;;;;",
+  "deployedSourceMap": "193:537:1:-;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;306:30;;8:9:-1;5:2;;;30:1;27;20:12;5:2;306:30:1;;;;;;;;;;;;;;;;;;;;260:43;;8:9:-1;5:2;;;30:1;27;20:12;5:2;-1:-1;260:43:1;;;;;;;540:96;;8:9:-1;5:2;;;30:1;27;20:12;5:2;540:96:1;;;;639:88;;8:9:-1;5:2;;;30:1;27;20:12;5:2;639:88:1;;;;306:30;;;;:::o;260:43::-;;;;;;;;;;;;;;:::o;540:96::-;612:20;621:10;612:20;584:15;612:20;;;;;;;;;;;540:96;:::o;639:88::-;712:11;;639:88;:::o",
+  "source": "pragma solidity ^0.4.23;\n\nimport \"./ERC20Basic.sol\";\nimport \"./SafeMath.sol\";\nimport \"./Pauseable.sol\";\n\n\n/**\n* @title Basic token\n* @dev Basic version of StandardToken, with no allowances.\n*/\ncontract BasicToken is ERC20Basic{\n\n\tusing SafeMath for uint256;\n\n\tmapping(address => uint256) public balances;\n\tuint256 public totalSupply = 0;\n\n\tconstructor ()public{\n\t\tbalances[msg.sender] = totalSupply;\n\t}\n\n\t/**\n\t* @dev Gets the balance of the specified address.\n\t* @return An uint256 representing the amount owned by the passed address.\n\t*/\n\tfunction balanceOf() external view returns (uint256 balance) {\n\t\treturn balances[msg.sender];\n\t}\n\n\tfunction getTotalSupply () external view returns(uint256 res) {\n\t\treturn totalSupply;\n\t}\n\n}\n",
+  "sourcePath": "/Users/rahulgolash/Rahul/Github/BaETH/contracts/BasicToken.sol",
+  "ast": {
+    "absolutePath": "/Users/rahulgolash/Rahul/Github/BaETH/contracts/BasicToken.sol",
+    "exportedSymbols": {
+      "BasicToken": [
+        118
+      ]
+    },
+    "id": 119,
+    "nodeType": "SourceUnit",
+    "nodes": [
+      {
+        "id": 72,
+        "literals": [
+          "solidity",
+          "^",
+          "0.4",
+          ".23"
+        ],
+        "nodeType": "PragmaDirective",
+        "src": "0:24:1"
+      },
+      {
+        "absolutePath": "/Users/rahulgolash/Rahul/Github/BaETH/contracts/ERC20Basic.sol",
+        "file": "./ERC20Basic.sol",
+        "id": 73,
+        "nodeType": "ImportDirective",
+        "scope": 119,
+        "sourceUnit": 140,
+        "src": "26:26:1",
+        "symbolAliases": [],
+        "unitAlias": ""
+      },
+      {
+        "absolutePath": "/Users/rahulgolash/Rahul/Github/BaETH/contracts/SafeMath.sol",
+        "file": "./SafeMath.sol",
+        "id": 74,
+        "nodeType": "ImportDirective",
+        "scope": 119,
+        "sourceUnit": 4213,
+        "src": "53:24:1",
+        "symbolAliases": [],
+        "unitAlias": ""
+      },
+      {
+        "absolutePath": "/Users/rahulgolash/Rahul/Github/BaETH/contracts/Pauseable.sol",
+        "file": "./Pauseable.sol",
+        "id": 75,
+        "nodeType": "ImportDirective",
+        "scope": 119,
+        "sourceUnit": 3040,
+        "src": "78:25:1",
+        "symbolAliases": [],
+        "unitAlias": ""
+      },
+      {
+        "baseContracts": [
+          {
+            "arguments": null,
+            "baseName": {
+              "contractScope": null,
+              "id": 76,
+              "name": "ERC20Basic",
+              "nodeType": "UserDefinedTypeName",
+              "referencedDeclaration": 139,
+              "src": "216:10:1",
+              "typeDescriptions": {
+                "typeIdentifier": "t_contract$_ERC20Basic_$139",
+                "typeString": "contract ERC20Basic"
+              }
+            },
+            "id": 77,
+            "nodeType": "InheritanceSpecifier",
+            "src": "216:10:1"
+          }
+        ],
+        "contractDependencies": [
+          139
+        ],
+        "contractKind": "contract",
+        "documentation": "@title Basic token\n@dev Basic version of StandardToken, with no allowances.",
+        "fullyImplemented": true,
+        "id": 118,
+        "linearizedBaseContracts": [
+          118,
+          139
+        ],
+        "name": "BasicToken",
+        "nodeType": "ContractDefinition",
+        "nodes": [
+          {
+            "id": 80,
+            "libraryName": {
+              "contractScope": null,
+              "id": 78,
+              "name": "SafeMath",
+              "nodeType": "UserDefinedTypeName",
+              "referencedDeclaration": 4212,
+              "src": "236:8:1",
+              "typeDescriptions": {
+                "typeIdentifier": "t_contract$_SafeMath_$4212",
+                "typeString": "library SafeMath"
+              }
+            },
+            "nodeType": "UsingForDirective",
+            "src": "230:27:1",
+            "typeName": {
+              "id": 79,
+              "name": "uint256",
+              "nodeType": "ElementaryTypeName",
+              "src": "249:7:1",
+              "typeDescriptions": {
+                "typeIdentifier": "t_uint256",
+                "typeString": "uint256"
+              }
+            }
+          },
+          {
+            "constant": false,
+            "id": 84,
+            "name": "balances",
+            "nodeType": "VariableDeclaration",
+            "scope": 118,
+            "src": "260:43:1",
+            "stateVariable": true,
+            "storageLocation": "default",
+            "typeDescriptions": {
+              "typeIdentifier": "t_mapping$_t_address_$_t_uint256_$",
+              "typeString": "mapping(address => uint256)"
+            },
+            "typeName": {
+              "id": 83,
+              "keyType": {
+                "id": 81,
+                "name": "address",
+                "nodeType": "ElementaryTypeName",
+                "src": "268:7:1",
+                "typeDescriptions": {
+                  "typeIdentifier": "t_address",
+                  "typeString": "address"
+                }
+              },
+              "nodeType": "Mapping",
+              "src": "260:27:1",
+              "typeDescriptions": {
+                "typeIdentifier": "t_mapping$_t_address_$_t_uint256_$",
+                "typeString": "mapping(address => uint256)"
+              },
+              "valueType": {
+                "id": 82,
+                "name": "uint256",
+                "nodeType": "ElementaryTypeName",
+                "src": "279:7:1",
+                "typeDescriptions": {
+                  "typeIdentifier": "t_uint256",
+                  "typeString": "uint256"
+                }
+              }
+            },
+            "value": null,
+            "visibility": "public"
+          },
+          {
+            "constant": false,
+            "id": 87,
+            "name": "totalSupply",
+            "nodeType": "VariableDeclaration",
+            "scope": 118,
+            "src": "306:30:1",
+            "stateVariable": true,
+            "storageLocation": "default",
+            "typeDescriptions": {
+              "typeIdentifier": "t_uint256",
+              "typeString": "uint256"
+            },
+            "typeName": {
+              "id": 85,
+              "name": "uint256",
+              "nodeType": "ElementaryTypeName",
+              "src": "306:7:1",
+              "typeDescriptions": {
+                "typeIdentifier": "t_uint256",
+                "typeString": "uint256"
+              }
+            },
+            "value": {
+              "argumentTypes": null,
+              "hexValue": "30",
+              "id": 86,
+              "isConstant": false,
+              "isLValue": false,
+              "isPure": true,
+              "kind": "number",
+              "lValueRequested": false,
+              "nodeType": "Literal",
+              "src": "335:1:1",
+              "subdenomination": null,
+              "typeDescriptions": {
+                "typeIdentifier": "t_rational_0_by_1",
+                "typeString": "int_const 0"
+              },
+              "value": "0"
+            },
+            "visibility": "public"
+          },
+          {
+            "body": {
+              "id": 97,
+              "nodeType": "Block",
+              "src": "360:42:1",
+              "statements": [
+                {
+                  "expression": {
+                    "argumentTypes": null,
+                    "id": 95,
+                    "isConstant": false,
+                    "isLValue": false,
+                    "isPure": false,
+                    "lValueRequested": false,
+                    "leftHandSide": {
+                      "argumentTypes": null,
+                      "baseExpression": {
+                        "argumentTypes": null,
+                        "id": 90,
+                        "name": "balances",
+                        "nodeType": "Identifier",
+                        "overloadedDeclarations": [],
+                        "referencedDeclaration": 84,
+                        "src": "364:8:1",
+                        "typeDescriptions": {
+                          "typeIdentifier": "t_mapping$_t_address_$_t_uint256_$",
+                          "typeString": "mapping(address => uint256)"
+                        }
+                      },
+                      "id": 93,
+                      "indexExpression": {
+                        "argumentTypes": null,
+                        "expression": {
+                          "argumentTypes": null,
+                          "id": 91,
+                          "name": "msg",
+                          "nodeType": "Identifier",
+                          "overloadedDeclarations": [],
+                          "referencedDeclaration": 5419,
+                          "src": "373:3:1",
+                          "typeDescriptions": {
+                            "typeIdentifier": "t_magic_message",
+                            "typeString": "msg"
+                          }
+                        },
+                        "id": 92,
+                        "isConstant": false,
+                        "isLValue": false,
+                        "isPure": false,
+                        "lValueRequested": false,
+                        "memberName": "sender",
+                        "nodeType": "MemberAccess",
+                        "referencedDeclaration": null,
+                        "src": "373:10:1",
+                        "typeDescriptions": {
+                          "typeIdentifier": "t_address",
+                          "typeString": "address"
+                        }
+                      },
+                      "isConstant": false,
+                      "isLValue": true,
+                      "isPure": false,
+                      "lValueRequested": true,
+                      "nodeType": "IndexAccess",
+                      "src": "364:20:1",
+                      "typeDescriptions": {
+                        "typeIdentifier": "t_uint256",
+                        "typeString": "uint256"
+                      }
+                    },
+                    "nodeType": "Assignment",
+                    "operator": "=",
+                    "rightHandSide": {
+                      "argumentTypes": null,
+                      "id": 94,
+                      "name": "totalSupply",
+                      "nodeType": "Identifier",
+                      "overloadedDeclarations": [],
+                      "referencedDeclaration": 87,
+                      "src": "387:11:1",
+                      "typeDescriptions": {
+                        "typeIdentifier": "t_uint256",
+                        "typeString": "uint256"
+                      }
+                    },
+                    "src": "364:34:1",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_uint256",
+                      "typeString": "uint256"
+                    }
+                  },
+                  "id": 96,
+                  "nodeType": "ExpressionStatement",
+                  "src": "364:34:1"
+                }
+              ]
+            },
+            "documentation": null,
+            "id": 98,
+            "implemented": true,
+            "isConstructor": true,
+            "isDeclaredConst": false,
+            "modifiers": [],
+            "name": "",
+            "nodeType": "FunctionDefinition",
+            "parameters": {
+              "id": 88,
+              "nodeType": "ParameterList",
+              "parameters": [],
+              "src": "352:2:1"
+            },
+            "payable": false,
+            "returnParameters": {
+              "id": 89,
+              "nodeType": "ParameterList",
+              "parameters": [],
+              "src": "360:0:1"
+            },
+            "scope": 118,
+            "src": "340:62:1",
+            "stateMutability": "nonpayable",
+            "superFunction": null,
+            "visibility": "public"
+          },
+          {
+            "body": {
+              "id": 108,
+              "nodeType": "Block",
+              "src": "601:35:1",
+              "statements": [
+                {
+                  "expression": {
+                    "argumentTypes": null,
+                    "baseExpression": {
+                      "argumentTypes": null,
+                      "id": 103,
+                      "name": "balances",
+                      "nodeType": "Identifier",
+                      "overloadedDeclarations": [],
+                      "referencedDeclaration": 84,
+                      "src": "612:8:1",
+                      "typeDescriptions": {
+                        "typeIdentifier": "t_mapping$_t_address_$_t_uint256_$",
+                        "typeString": "mapping(address => uint256)"
+                      }
+                    },
+                    "id": 106,
+                    "indexExpression": {
+                      "argumentTypes": null,
+                      "expression": {
+                        "argumentTypes": null,
+                        "id": 104,
+                        "name": "msg",
+                        "nodeType": "Identifier",
+                        "overloadedDeclarations": [],
+                        "referencedDeclaration": 5419,
+                        "src": "621:3:1",
+                        "typeDescriptions": {
+                          "typeIdentifier": "t_magic_message",
+                          "typeString": "msg"
+                        }
+                      },
+                      "id": 105,
+                      "isConstant": false,
+                      "isLValue": false,
+                      "isPure": false,
+                      "lValueRequested": false,
+                      "memberName": "sender",
+                      "nodeType": "MemberAccess",
+                      "referencedDeclaration": null,
+                      "src": "621:10:1",
+                      "typeDescriptions": {
+                        "typeIdentifier": "t_address",
+                        "typeString": "address"
+                      }
+                    },
+                    "isConstant": false,
+                    "isLValue": true,
+                    "isPure": false,
+                    "lValueRequested": false,
+                    "nodeType": "IndexAccess",
+                    "src": "612:20:1",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_uint256",
+                      "typeString": "uint256"
+                    }
+                  },
+                  "functionReturnParameters": 102,
+                  "id": 107,
+                  "nodeType": "Return",
+                  "src": "605:27:1"
+                }
+              ]
+            },
+            "documentation": "@dev Gets the balance of the specified address.\n@return An uint256 representing the amount owned by the passed address.",
+            "id": 109,
+            "implemented": true,
+            "isConstructor": false,
+            "isDeclaredConst": true,
+            "modifiers": [],
+            "name": "balanceOf",
+            "nodeType": "FunctionDefinition",
+            "parameters": {
+              "id": 99,
+              "nodeType": "ParameterList",
+              "parameters": [],
+              "src": "558:2:1"
+            },
+            "payable": false,
+            "returnParameters": {
+              "id": 102,
+              "nodeType": "ParameterList",
+              "parameters": [
+                {
+                  "constant": false,
+                  "id": 101,
+                  "name": "balance",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 109,
+                  "src": "584:15:1",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_uint256",
+                    "typeString": "uint256"
+                  },
+                  "typeName": {
+                    "id": 100,
+                    "name": "uint256",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "584:7:1",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_uint256",
+                      "typeString": "uint256"
+                    }
+                  },
+                  "value": null,
+                  "visibility": "internal"
+                }
+              ],
+              "src": "583:17:1"
+            },
+            "scope": 118,
+            "src": "540:96:1",
+            "stateMutability": "view",
+            "superFunction": 130,
+            "visibility": "external"
+          },
+          {
+            "body": {
+              "id": 116,
+              "nodeType": "Block",
+              "src": "701:26:1",
+              "statements": [
+                {
+                  "expression": {
+                    "argumentTypes": null,
+                    "id": 114,
+                    "name": "totalSupply",
+                    "nodeType": "Identifier",
+                    "overloadedDeclarations": [],
+                    "referencedDeclaration": 87,
+                    "src": "712:11:1",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_uint256",
+                      "typeString": "uint256"
+                    }
+                  },
+                  "functionReturnParameters": 113,
+                  "id": 115,
+                  "nodeType": "Return",
+                  "src": "705:18:1"
+                }
+              ]
+            },
+            "documentation": null,
+            "id": 117,
+            "implemented": true,
+            "isConstructor": false,
+            "isDeclaredConst": true,
+            "modifiers": [],
+            "name": "getTotalSupply",
+            "nodeType": "FunctionDefinition",
+            "parameters": {
+              "id": 110,
+              "nodeType": "ParameterList",
+              "parameters": [],
+              "src": "663:2:1"
+            },
+            "payable": false,
+            "returnParameters": {
+              "id": 113,
+              "nodeType": "ParameterList",
+              "parameters": [
+                {
+                  "constant": false,
+                  "id": 112,
+                  "name": "res",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 117,
+                  "src": "688:11:1",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_uint256",
+                    "typeString": "uint256"
+                  },
+                  "typeName": {
+                    "id": 111,
+                    "name": "uint256",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "688:7:1",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_uint256",
+                      "typeString": "uint256"
+                    }
+                  },
+                  "value": null,
+                  "visibility": "internal"
+                }
+              ],
+              "src": "687:13:1"
+            },
+            "scope": 118,
+            "src": "639:88:1",
+            "stateMutability": "view",
+            "superFunction": 125,
+            "visibility": "external"
+          }
+        ],
+        "scope": 119,
+        "src": "193:537:1"
+      }
+    ],
+    "src": "0:731:1"
+  },
+  "legacyAST": {
+    "absolutePath": "/Users/rahulgolash/Rahul/Github/BaETH/contracts/BasicToken.sol",
+    "exportedSymbols": {
+      "BasicToken": [
+        118
+      ]
+    },
+    "id": 119,
+    "nodeType": "SourceUnit",
+    "nodes": [
+      {
+        "id": 72,
+        "literals": [
+          "solidity",
+          "^",
+          "0.4",
+          ".23"
+        ],
+        "nodeType": "PragmaDirective",
+        "src": "0:24:1"
+      },
+      {
+        "absolutePath": "/Users/rahulgolash/Rahul/Github/BaETH/contracts/ERC20Basic.sol",
+        "file": "./ERC20Basic.sol",
+        "id": 73,
+        "nodeType": "ImportDirective",
+        "scope": 119,
+        "sourceUnit": 140,
+        "src": "26:26:1",
+        "symbolAliases": [],
+        "unitAlias": ""
+      },
+      {
+        "absolutePath": "/Users/rahulgolash/Rahul/Github/BaETH/contracts/SafeMath.sol",
+        "file": "./SafeMath.sol",
+        "id": 74,
+        "nodeType": "ImportDirective",
+        "scope": 119,
+        "sourceUnit": 4213,
+        "src": "53:24:1",
+        "symbolAliases": [],
+        "unitAlias": ""
+      },
+      {
+        "absolutePath": "/Users/rahulgolash/Rahul/Github/BaETH/contracts/Pauseable.sol",
+        "file": "./Pauseable.sol",
+        "id": 75,
+        "nodeType": "ImportDirective",
+        "scope": 119,
+        "sourceUnit": 3040,
+        "src": "78:25:1",
+        "symbolAliases": [],
+        "unitAlias": ""
+      },
+      {
+        "baseContracts": [
+          {
+            "arguments": null,
+            "baseName": {
+              "contractScope": null,
+              "id": 76,
+              "name": "ERC20Basic",
+              "nodeType": "UserDefinedTypeName",
+              "referencedDeclaration": 139,
+              "src": "216:10:1",
+              "typeDescriptions": {
+                "typeIdentifier": "t_contract$_ERC20Basic_$139",
+                "typeString": "contract ERC20Basic"
+              }
+            },
+            "id": 77,
+            "nodeType": "InheritanceSpecifier",
+            "src": "216:10:1"
+          }
+        ],
+        "contractDependencies": [
+          139
+        ],
+        "contractKind": "contract",
+        "documentation": "@title Basic token\n@dev Basic version of StandardToken, with no allowances.",
+        "fullyImplemented": true,
+        "id": 118,
+        "linearizedBaseContracts": [
+          118,
+          139
+        ],
+        "name": "BasicToken",
+        "nodeType": "ContractDefinition",
+        "nodes": [
+          {
+            "id": 80,
+            "libraryName": {
+              "contractScope": null,
+              "id": 78,
+              "name": "SafeMath",
+              "nodeType": "UserDefinedTypeName",
+              "referencedDeclaration": 4212,
+              "src": "236:8:1",
+              "typeDescriptions": {
+                "typeIdentifier": "t_contract$_SafeMath_$4212",
+                "typeString": "library SafeMath"
+              }
+            },
+            "nodeType": "UsingForDirective",
+            "src": "230:27:1",
+            "typeName": {
+              "id": 79,
+              "name": "uint256",
+              "nodeType": "ElementaryTypeName",
+              "src": "249:7:1",
+              "typeDescriptions": {
+                "typeIdentifier": "t_uint256",
+                "typeString": "uint256"
+              }
+            }
+          },
+          {
+            "constant": false,
+            "id": 84,
+            "name": "balances",
+            "nodeType": "VariableDeclaration",
+            "scope": 118,
+            "src": "260:43:1",
+            "stateVariable": true,
+            "storageLocation": "default",
+            "typeDescriptions": {
+              "typeIdentifier": "t_mapping$_t_address_$_t_uint256_$",
+              "typeString": "mapping(address => uint256)"
+            },
+            "typeName": {
+              "id": 83,
+              "keyType": {
+                "id": 81,
+                "name": "address",
+                "nodeType": "ElementaryTypeName",
+                "src": "268:7:1",
+                "typeDescriptions": {
+                  "typeIdentifier": "t_address",
+                  "typeString": "address"
+                }
+              },
+              "nodeType": "Mapping",
+              "src": "260:27:1",
+              "typeDescriptions": {
+                "typeIdentifier": "t_mapping$_t_address_$_t_uint256_$",
+                "typeString": "mapping(address => uint256)"
+              },
+              "valueType": {
+                "id": 82,
+                "name": "uint256",
+                "nodeType": "ElementaryTypeName",
+                "src": "279:7:1",
+                "typeDescriptions": {
+                  "typeIdentifier": "t_uint256",
+                  "typeString": "uint256"
+                }
+              }
+            },
+            "value": null,
+            "visibility": "public"
+          },
+          {
+            "constant": false,
+            "id": 87,
+            "name": "totalSupply",
+            "nodeType": "VariableDeclaration",
+            "scope": 118,
+            "src": "306:30:1",
+            "stateVariable": true,
+            "storageLocation": "default",
+            "typeDescriptions": {
+              "typeIdentifier": "t_uint256",
+              "typeString": "uint256"
+            },
+            "typeName": {
+              "id": 85,
+              "name": "uint256",
+              "nodeType": "ElementaryTypeName",
+              "src": "306:7:1",
+              "typeDescriptions": {
+                "typeIdentifier": "t_uint256",
+                "typeString": "uint256"
+              }
+            },
+            "value": {
+              "argumentTypes": null,
+              "hexValue": "30",
+              "id": 86,
+              "isConstant": false,
+              "isLValue": false,
+              "isPure": true,
+              "kind": "number",
+              "lValueRequested": false,
+              "nodeType": "Literal",
+              "src": "335:1:1",
+              "subdenomination": null,
+              "typeDescriptions": {
+                "typeIdentifier": "t_rational_0_by_1",
+                "typeString": "int_const 0"
+              },
+              "value": "0"
+            },
+            "visibility": "public"
+          },
+          {
+            "body": {
+              "id": 97,
+              "nodeType": "Block",
+              "src": "360:42:1",
+              "statements": [
+                {
+                  "expression": {
+                    "argumentTypes": null,
+                    "id": 95,
+                    "isConstant": false,
+                    "isLValue": false,
+                    "isPure": false,
+                    "lValueRequested": false,
+                    "leftHandSide": {
+                      "argumentTypes": null,
+                      "baseExpression": {
+                        "argumentTypes": null,
+                        "id": 90,
+                        "name": "balances",
+                        "nodeType": "Identifier",
+                        "overloadedDeclarations": [],
+                        "referencedDeclaration": 84,
+                        "src": "364:8:1",
+                        "typeDescriptions": {
+                          "typeIdentifier": "t_mapping$_t_address_$_t_uint256_$",
+                          "typeString": "mapping(address => uint256)"
+                        }
+                      },
+                      "id": 93,
+                      "indexExpression": {
+                        "argumentTypes": null,
+                        "expression": {
+                          "argumentTypes": null,
+                          "id": 91,
+                          "name": "msg",
+                          "nodeType": "Identifier",
+                          "overloadedDeclarations": [],
+                          "referencedDeclaration": 5419,
+                          "src": "373:3:1",
+                          "typeDescriptions": {
+                            "typeIdentifier": "t_magic_message",
+                            "typeString": "msg"
+                          }
+                        },
+                        "id": 92,
+                        "isConstant": false,
+                        "isLValue": false,
+                        "isPure": false,
+                        "lValueRequested": false,
+                        "memberName": "sender",
+                        "nodeType": "MemberAccess",
+                        "referencedDeclaration": null,
+                        "src": "373:10:1",
+                        "typeDescriptions": {
+                          "typeIdentifier": "t_address",
+                          "typeString": "address"
+                        }
+                      },
+                      "isConstant": false,
+                      "isLValue": true,
+                      "isPure": false,
+                      "lValueRequested": true,
+                      "nodeType": "IndexAccess",
+                      "src": "364:20:1",
+                      "typeDescriptions": {
+                        "typeIdentifier": "t_uint256",
+                        "typeString": "uint256"
+                      }
+                    },
+                    "nodeType": "Assignment",
+                    "operator": "=",
+                    "rightHandSide": {
+                      "argumentTypes": null,
+                      "id": 94,
+                      "name": "totalSupply",
+                      "nodeType": "Identifier",
+                      "overloadedDeclarations": [],
+                      "referencedDeclaration": 87,
+                      "src": "387:11:1",
+                      "typeDescriptions": {
+                        "typeIdentifier": "t_uint256",
+                        "typeString": "uint256"
+                      }
+                    },
+                    "src": "364:34:1",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_uint256",
+                      "typeString": "uint256"
+                    }
+                  },
+                  "id": 96,
+                  "nodeType": "ExpressionStatement",
+                  "src": "364:34:1"
+                }
+              ]
+            },
+            "documentation": null,
+            "id": 98,
+            "implemented": true,
+            "isConstructor": true,
+            "isDeclaredConst": false,
+            "modifiers": [],
+            "name": "",
+            "nodeType": "FunctionDefinition",
+            "parameters": {
+              "id": 88,
+              "nodeType": "ParameterList",
+              "parameters": [],
+              "src": "352:2:1"
+            },
+            "payable": false,
+            "returnParameters": {
+              "id": 89,
+              "nodeType": "ParameterList",
+              "parameters": [],
+              "src": "360:0:1"
+            },
+            "scope": 118,
+            "src": "340:62:1",
+            "stateMutability": "nonpayable",
+            "superFunction": null,
+            "visibility": "public"
+          },
+          {
+            "body": {
+              "id": 108,
+              "nodeType": "Block",
+              "src": "601:35:1",
+              "statements": [
+                {
+                  "expression": {
+                    "argumentTypes": null,
+                    "baseExpression": {
+                      "argumentTypes": null,
+                      "id": 103,
+                      "name": "balances",
+                      "nodeType": "Identifier",
+                      "overloadedDeclarations": [],
+                      "referencedDeclaration": 84,
+                      "src": "612:8:1",
+                      "typeDescriptions": {
+                        "typeIdentifier": "t_mapping$_t_address_$_t_uint256_$",
+                        "typeString": "mapping(address => uint256)"
+                      }
+                    },
+                    "id": 106,
+                    "indexExpression": {
+                      "argumentTypes": null,
+                      "expression": {
+                        "argumentTypes": null,
+                        "id": 104,
+                        "name": "msg",
+                        "nodeType": "Identifier",
+                        "overloadedDeclarations": [],
+                        "referencedDeclaration": 5419,
+                        "src": "621:3:1",
+                        "typeDescriptions": {
+                          "typeIdentifier": "t_magic_message",
+                          "typeString": "msg"
+                        }
+                      },
+                      "id": 105,
+                      "isConstant": false,
+                      "isLValue": false,
+                      "isPure": false,
+                      "lValueRequested": false,
+                      "memberName": "sender",
+                      "nodeType": "MemberAccess",
+                      "referencedDeclaration": null,
+                      "src": "621:10:1",
+                      "typeDescriptions": {
+                        "typeIdentifier": "t_address",
+                        "typeString": "address"
+                      }
+                    },
+                    "isConstant": false,
+                    "isLValue": true,
+                    "isPure": false,
+                    "lValueRequested": false,
+                    "nodeType": "IndexAccess",
+                    "src": "612:20:1",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_uint256",
+                      "typeString": "uint256"
+                    }
+                  },
+                  "functionReturnParameters": 102,
+                  "id": 107,
+                  "nodeType": "Return",
+                  "src": "605:27:1"
+                }
+              ]
+            },
+            "documentation": "@dev Gets the balance of the specified address.\n@return An uint256 representing the amount owned by the passed address.",
+            "id": 109,
+            "implemented": true,
+            "isConstructor": false,
+            "isDeclaredConst": true,
+            "modifiers": [],
+            "name": "balanceOf",
+            "nodeType": "FunctionDefinition",
+            "parameters": {
+              "id": 99,
+              "nodeType": "ParameterList",
+              "parameters": [],
+              "src": "558:2:1"
+            },
+            "payable": false,
+            "returnParameters": {
+              "id": 102,
+              "nodeType": "ParameterList",
+              "parameters": [
+                {
+                  "constant": false,
+                  "id": 101,
+                  "name": "balance",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 109,
+                  "src": "584:15:1",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_uint256",
+                    "typeString": "uint256"
+                  },
+                  "typeName": {
+                    "id": 100,
+                    "name": "uint256",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "584:7:1",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_uint256",
+                      "typeString": "uint256"
+                    }
+                  },
+                  "value": null,
+                  "visibility": "internal"
+                }
+              ],
+              "src": "583:17:1"
+            },
+            "scope": 118,
+            "src": "540:96:1",
+            "stateMutability": "view",
+            "superFunction": 130,
+            "visibility": "external"
+          },
+          {
+            "body": {
+              "id": 116,
+              "nodeType": "Block",
+              "src": "701:26:1",
+              "statements": [
+                {
+                  "expression": {
+                    "argumentTypes": null,
+                    "id": 114,
+                    "name": "totalSupply",
+                    "nodeType": "Identifier",
+                    "overloadedDeclarations": [],
+                    "referencedDeclaration": 87,
+                    "src": "712:11:1",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_uint256",
+                      "typeString": "uint256"
+                    }
+                  },
+                  "functionReturnParameters": 113,
+                  "id": 115,
+                  "nodeType": "Return",
+                  "src": "705:18:1"
+                }
+              ]
+            },
+            "documentation": null,
+            "id": 117,
+            "implemented": true,
+            "isConstructor": false,
+            "isDeclaredConst": true,
+            "modifiers": [],
+            "name": "getTotalSupply",
+            "nodeType": "FunctionDefinition",
+            "parameters": {
+              "id": 110,
+              "nodeType": "ParameterList",
+              "parameters": [],
+              "src": "663:2:1"
+            },
+            "payable": false,
+            "returnParameters": {
+              "id": 113,
+              "nodeType": "ParameterList",
+              "parameters": [
+                {
+                  "constant": false,
+                  "id": 112,
+                  "name": "res",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 117,
+                  "src": "688:11:1",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_uint256",
+                    "typeString": "uint256"
+                  },
+                  "typeName": {
+                    "id": 111,
+                    "name": "uint256",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "688:7:1",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_uint256",
+                      "typeString": "uint256"
+                    }
+                  },
+                  "value": null,
+                  "visibility": "internal"
+                }
+              ],
+              "src": "687:13:1"
+            },
+            "scope": 118,
+            "src": "639:88:1",
+            "stateMutability": "view",
+            "superFunction": 125,
+            "visibility": "external"
+          }
+        ],
+        "scope": 119,
+        "src": "193:537:1"
+      }
+    ],
+    "src": "0:731:1"
+  },
+  "compiler": {
+    "name": "solc",
+    "version": "0.4.23+commit.124ca40d.Emscripten.clang"
+  },
+  "networks": {},
+  "schemaVersion": "2.0.0",
+  "updatedAt": "2018-05-27T07:14:52.888Z"
+}
